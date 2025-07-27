@@ -2,6 +2,7 @@
 
 import AboutUs from '@/components/AboutUs';
 import ComparisonSection from '@/components/Comparison';
+import FAQSection from '@/components/FaqSection';
 import Features from '@/components/Features';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
@@ -86,6 +87,7 @@ export default function Home() {
       <AboutUs/>
       <Features/>
       <ComparisonSection/>
+      <FAQSection/>
       {/* Add some content to test scrolling */}
       <div className="h-screen bg-gray-900 flex items-center justify-center">
         <h2 className="text-white text-4xl">Scroll to test navbar behavior</h2>
