@@ -1,10 +1,47 @@
 'use client';
 
+import AboutUs from '@/components/AboutUs';
+import ComparisonSection from '@/components/Comparison';
+import Features from '@/components/Features';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    let animationId: number;
+
+    // Mouse movement handler
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY + 6 });
+    };
+
+    // Smooth trail animation with proper cleanup
+    const animateTrail = () => {
+      setTrailPosition(prev => ({
+        x: prev.x + (cursorPosition.x - prev.x) * 0.08,
+        y: prev.y + (cursorPosition.y - prev.y) * 0.08
+      }));
+      animationId = requestAnimationFrame(animateTrail);
+    };
+
+    // Add mouse move listener
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    // Start animation
+    animationId = requestAnimationFrame(animateTrail);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [cursorPosition.x, cursorPosition.y]);
+
   useEffect(() => {
     // Import and initialize Lenis
     const initLenis = async () => {
@@ -33,8 +70,22 @@ export default function Home() {
 
   return (
     <main style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}>
+      {/* Cursor Trail */}
+      <div
+        className="fixed pointer-events-none z-50 w-3 h-3 bg-white rounded-full opacity-"
+        style={{
+          left: trailPosition.x - 6,
+          top: trailPosition.y - 6,
+          transform: 'translate3d(0, 0, 0)',
+          willChange: 'transform'
+        }}
+      />
+      
       <Navbar />
       <Hero />
+      <AboutUs/>
+      <Features/>
+      <ComparisonSection/>
       {/* Add some content to test scrolling */}
       <div className="h-screen bg-gray-900 flex items-center justify-center">
         <h2 className="text-white text-4xl">Scroll to test navbar behavior</h2>
