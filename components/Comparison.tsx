@@ -120,7 +120,7 @@ const ComparisonSection: React.FC = () => {
               className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
             >
-              IntelliRite is built to elevate your writing—whether it's research papers, journals, or professional reports—with a clean, AI-enhanced platform that prioritizes quality, structure, and originality.
+              IntelliRite is built to elevate your writing—whether it is research papers, journals, or professional reports—with a clean, AI-enhanced platform that prioritizes quality, structure, and originality.
             </p>
           </motion.div>
 

@@ -4,6 +4,7 @@ import AboutUs from '@/components/AboutUs';
 import ComparisonSection from '@/components/Comparison';
 import FAQSection from '@/components/FaqSection';
 import Features from '@/components/Features';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import { useEffect, useState } from 'react';
@@ -62,7 +63,7 @@ export default function Home() {
 
         requestAnimationFrame(raf);
       } catch (error) {
-        console.log('Lenis not available, using default scroll');
+        console.log('Lenis not available, using default scroll', error);
       }
     };
 
@@ -88,10 +89,7 @@ export default function Home() {
       <Features/>
       <ComparisonSection/>
       <FAQSection/>
-      {/* Add some content to test scrolling */}
-      <div className="h-screen bg-gray-900 flex items-center justify-center">
-        <h2 className="text-white text-4xl">Scroll to test navbar behavior</h2>
-      </div>
+      <Footer/>
     </main>
   );
 }

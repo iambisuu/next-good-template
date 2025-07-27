@@ -141,7 +141,7 @@ const FeatureCardComponent = ({ card, index }: { card: FeatureCard; index: numbe
       className="relative group"
     >
       {/* Card with exact styling from image */}
-      <div className="bg-black border border-white/30 rounded-2xl p-8 hover:border-white/50 transition-all duration-300 min-h-[280px] flex flex-col items-center justify-center text-center relative overflow-hidden">
+      <div id='features' className="bg-black border border-white/30 rounded-2xl p-8 hover:border-white/50 transition-all duration-300 min-h-[280px] flex flex-col items-center justify-center text-center relative overflow-hidden">
         {/* Icon - larger and centered */}
         <div className="mb-10 relative z-10">
           <div className="text-white text-4xl">
@@ -242,12 +242,7 @@ export default function TeamPotentialSection() {
           viewport={{ once: true }}
           className="fixed bottom-6 right-6 z-20"
         >
-          <div className="bg-gray-900 border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 backdrop-blur-sm">
-            <span className="flex items-center gap-2">
-              <span>📐</span>
-              Made in Framer
-            </span>
-          </div>
+       
         </motion.div>
       </div>
     </section>

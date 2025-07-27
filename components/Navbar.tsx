@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
               <span className="block transition-transform duration-300 ease-out">Contact</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Contact</span>
             </a>
-            <a href="#" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a href="#faq" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
               <span className="block transition-transform duration-300 ease-out">FAQ</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>FAQ</span>
             </a>

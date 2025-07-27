@@ -104,6 +104,7 @@ const FAQSection: React.FC = () => {
     <>
       <style dangerouslySetInnerHTML={{ __html: fontFaceStyle }} />
       <div 
+        id="faq"
         className="min-h-screen bg-black text-white py-20 px-4"
         style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
       >
