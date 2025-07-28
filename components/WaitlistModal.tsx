@@ -116,11 +116,11 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
       />
       
       {/* Modal */}
-      <div className="relative bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 w-full max-w-md mx-4 transform transition-all duration-300 scale-100">
+      <div className="relative bg-white/90 backdrop-blur-xl border border-black/20 rounded-2xl p-8 w-full max-w-md mx-4 transform transition-all duration-300 scale-100">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+          className="absolute top-4 right-4 text-black/60 hover:text-black transition-colors"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -131,18 +131,18 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
         <div className="text-center">
           {/* Logo */}
           <div className="mb-6">
-            <div className="w-16 h-16 bg-white/10 rounded-xl border border-white/20 flex items-center justify-center mx-auto">
-              <div className="text-white text-2xl font-bold transform -rotate-12">
+            <div className="w-16 h-16 bg-black/10 rounded-xl border border-black/20 flex items-center justify-center mx-auto">
+              <div className="text-black text-2xl font-bold transform -rotate-12">
                 ∅
               </div>
             </div>
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl font-medium text-white mb-2">
+          <h2 className="text-3xl font-medium text-black mb-2">
             Join the waitlist
           </h2>
-          <p className="text-white/60 text-sm mb-8">
+          <p className="text-black/60 text-sm mb-8">
             Get early access to our AI-powered research platform
           </p>
 
@@ -153,17 +153,17 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
               type="email"
               placeholder="your@email.com"
               onKeyPress={handleKeyPress}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors"
+              className="w-full px-4 py-3 bg-black/10 border border-black/20 rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-blue-600 transition-colors"
               disabled={isSubmitting}
             />
             
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className={`w-full px-6 py-3 bg-white text-black font-semibold rounded-xl transition-all duration-200 ${
+              className={`w-full px-6 py-3 bg-black text-white font-semibold rounded-xl transition-all duration-200 ${
                 isSubmitting 
                   ? 'opacity-50 cursor-not-allowed' 
-                  : 'hover:bg-gray-100 hover:scale-105 active:scale-95'
+                  : 'hover:bg-black/80 hover:scale-105 active:scale-95'
               }`}
             >
               {isSubmitting ? 'Joining...' : 'Join waitlist'}
@@ -174,7 +174,7 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
           {status.message && (
             <div
               className={`mt-4 text-sm ${
-                status.type === 'success' ? 'text-green-400' : 'text-red-400'
+                status.type === 'success' ? 'text-green-600' : 'text-red-600'
               }`}
             >
               {status.message}

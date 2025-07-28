@@ -57,7 +57,7 @@ export default function AboutUs() {
                 <span
                   key={charIndex}
                   style={{
-                    color: `rgb(${101 + (255 - 101) * opacity}, ${101 + (255 - 101) * opacity}, ${101 + (255 - 101) * opacity})`,
+                    color: `rgb(${101 + (154 - 101) * opacity}, ${101 + (154 - 101) * opacity}, ${101 + (154 - 101) * opacity})`,
                     transition: 'color 0.1s ease-out'
                   }}
                 >
@@ -65,7 +65,7 @@ export default function AboutUs() {
                 </span>
               );
             })}
-            {wordIndex < words.length - 1 && <span style={{ color: `rgb(${101 + (255 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (255 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (255 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)})` }}> </span>}
+            {wordIndex < words.length - 1 && <span style={{ color: `rgb(${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)})` }}> </span>}
           </span>
         ))}
       </span>
@@ -76,21 +76,21 @@ export default function AboutUs() {
     <section 
       ref={sectionRef}
       id='about-us'
-      className="min-h-screen bg-black flex flex-col items-center justify-center px-6 py-20"
+      className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-20"
       style={{ fontFamily: "'SF Pro Display', 'SF-Pro', system-ui, sans-serif" }}
     >
       {/* About Us Text */}
       <div className="mb-12 flex flex-col items-center">
-        <h2 className="text-white font-medium text-xl mb-1" style={{ fontFamily: "'SF Pro Display', 'SF-Pro', system-ui, sans-serif" }}>
+        <h2 className="text-black font-medium text-xl mb-1" style={{ fontFamily: "'SF Pro Display', 'SF-Pro', system-ui, sans-serif" }}>
           About Us
         </h2>
         {/* Decorative Line */}
         <div className="relative w-36 h-px">
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-60"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-black to-transparent opacity-60"
             style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, white 30%, white 70%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, white 30%, white 70%, transparent 100%)'
+              maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)'
             }}
           ></div>
         </div>
@@ -114,7 +114,7 @@ export default function AboutUs() {
             transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
           }}
         >
-          <button className="bg-white text-black font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-gray-100 hover:shadow-lg cursor-pointer transform hover:scale-105">
+          <button className="bg-black text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-black/80 hover:shadow-lg cursor-pointer transform hover:scale-105">
             Get Early Access
           </button>
         </div>

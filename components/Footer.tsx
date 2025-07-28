@@ -42,10 +42,10 @@ const Footer: React.FC = () => {
       `}</style>
       
       {/* Top separator line */}
-      <div className="w-full h-px bg-gray-800"></div>
+      <div className="w-full h-px bg-gray-300"></div>
       
       <motion.footer 
-        className="relative bg-black text-white pt-16 pb-8 px-8"
+        className="relative bg-white text-black pt-16 pb-8 px-8"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -59,14 +59,14 @@ const Footer: React.FC = () => {
             {/* Logo and Description */}
             <motion.div className="space-y-6" variants={itemVariants}>
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-                  <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-3 h-3 bg-black rounded-full"></div>
                   </div>
                 </div>
-                <span className="text-2xl font-semibold text-white">IntelliRite</span>
+                <span className="text-2xl font-semibold text-black">IntelliRite</span>
               </div>
-              <div className="text-gray-400 leading-relaxed">
+              <div className="text-gray-600 leading-relaxed">
                 <p>Crafted with ✨ clarity, <br /> intelligence & care.</p>
                 {/* <p className="mt-1">— Built by </p> */}
               </div>
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
 
             {/* Platform */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-6">Platform</h3>
+              <h3 className="text-lg font-semibold text-black mb-6">Platform</h3>
               <nav className="space-y-4">
                 {['Home', 'Features', 'How It Works', 'FAQ', 'Contact'].map((item) => (
                   <motion.div
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
                   >
                     <Link 
                       href={`/${item.toLowerCase().replace(' ', '-')}`} 
-                      className="block text-gray-400 hover:text-white transition-colors duration-200"
+                      className="block text-gray-600 hover:text-black transition-colors duration-200"
                     >
                       {item}
                     </Link>
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
 
             {/* Resources */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-6">Resources</h3>
+              <h3 className="text-lg font-semibold text-black mb-6">Resources</h3>
               <nav className="space-y-4">
                 {[
                   { name: 'Blog', url: '/blog' },
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                   >
                     <Link 
                       href={item.url}
-                      className="block text-gray-400 hover:text-white transition-colors duration-200"
+                      className="block text-gray-600 hover:text-black transition-colors duration-200"
                     >
                       {item.name}
                     </Link>
@@ -121,20 +121,20 @@ const Footer: React.FC = () => {
 
             {/* Newsletter */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-6">Newsletter</h3>
+              <h3 className="text-lg font-semibold text-black mb-6">Newsletter</h3>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-white font-medium">Stay in the Loop</p>
-                  <p className="text-gray-400 text-sm">Get product updates, early access invites & writing insights.</p>
+                  <p className="text-black font-medium">Stay in the Loop</p>
+                  <p className="text-gray-600 text-sm">Get product updates, early access invites & writing insights.</p>
                 </div>
                 <div className="flex">
                   <input
                     type="email"
                     placeholder="Enter Your Email..."
-                    className="flex-1 bg-white/10 border border-gray-800 rounded-l-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors duration-200"
+                    className="flex-1 bg-black/10 border border-gray-300 rounded-l-xl px-4 py-3 text-black placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors duration-200"
                   />
                   <motion.button 
-                    className="bg-white cursor-pointer text-black px-6 py-3 rounded-r-xl font-medium transition-all duration-200 hover:bg-gray-100 flex items-center space-x-2"
+                    className="bg-black cursor-pointer text-white px-6 py-3 rounded-r-xl font-medium transition-all duration-200 hover:bg-black/80 flex items-center space-x-2"
                     whileHover={{ y: -1 }}
                     whileTap={{ y: 0 }}
                     transition={{ duration: 0.1 }}
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
 
           {/* Social Links Section */}
           <motion.div className="mb-8" variants={itemVariants}>
-            <h3 className="text-lg font-semibold text-white mb-6">Social</h3>
+            <h3 className="text-lg font-semibold text-black mb-6">Social</h3>
             <div className="flex flex-wrap gap-6">
               {[
                 { name: 'Twitter (X)', url: 'https://twitter.com' },
@@ -162,7 +162,7 @@ const Footer: React.FC = () => {
                   href={item.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-600 hover:text-black transition-colors duration-200"
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -174,22 +174,22 @@ const Footer: React.FC = () => {
 
           {/* Bottom Section */}
           <motion.div 
-            className="border-t border-gray-800 pt-6"
+            className="border-t border-gray-300 pt-6"
             variants={itemVariants}
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
+              <div className="text-gray-600 text-sm">
                 © 2025 IntelliRite Inc.
               </div>
-              <div className="flex items-center space-x-2 text-gray-400 text-sm">
+              <div className="flex items-center space-x-2 text-gray-600 text-sm">
                 <motion.div whileHover={{ y: -1 }} transition={{ duration: 0.1 }}>
-                  <Link href="/terms" className="hover:text-white transition-colors duration-200">
+                  <Link href="/terms" className="hover:text-black transition-colors duration-200">
                     Terms & Conditions
                   </Link>
                 </motion.div>
                 <span>•</span>
                 <motion.div whileHover={{ y: -1 }} transition={{ duration: 0.1 }}>
-                  <Link href="/privacy" className="hover:text-white transition-colors duration-200">
+                  <Link href="/privacy" className="hover:text-black transition-colors duration-200">
                     Privacy Policy
                   </Link>
                 </motion.div>

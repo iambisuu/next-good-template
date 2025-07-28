@@ -56,7 +56,7 @@ const featureCards: FeatureCard[] = [
 
 // Floating star elements
 const FloatingStar = ({ delay = 0, size = 'small', left, top }: { delay?: number; size?: 'small' | 'medium' | 'large'; left: string; top: string }) => {
-  const colors = ['rgba(255,255,255,0.6)', 'rgba(147,51,234,0.4)', 'rgba(59,130,246,0.4)', 'rgba(168,85,247,0.4)']
+  const colors = ['rgba(0,0,0,0.6)', 'rgba(147,51,234,0.4)', 'rgba(59,130,246,0.4)', 'rgba(168,85,247,0.4)']
   const randomColor = colors[Math.floor(Math.random() * colors.length)]
   
   const sizeClasses = {
@@ -94,7 +94,7 @@ const MovingLines = () => (
     {Array.from({ length: 8 }).map((_, i) => (
       <motion.div
         key={i}
-        className="absolute h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-20"
+        className="absolute h-px bg-gradient-to-r from-transparent via-black to-transparent opacity-20"
         style={{
           width: '200px',
           top: `${(i + 1) * 12.5}%`,
@@ -141,21 +141,21 @@ const FeatureCardComponent = ({ card, index }: { card: FeatureCard; index: numbe
       className="relative group"
     >
       {/* Card with exact styling from image */}
-      <div id='features' className="bg-black border border-white/30 rounded-2xl p-8 hover:border-white/50 transition-all duration-300 min-h-[280px] flex flex-col items-center justify-center text-center relative overflow-hidden">
+      <div id='features' className="bg-white border border-black/30 rounded-2xl p-8 hover:border-black/50 transition-all duration-300 min-h-[280px] flex flex-col items-center justify-center text-center relative overflow-hidden shadow-lg">
         {/* Icon - larger and centered */}
         <div className="mb-10 relative z-10">
-          <div className="text-white text-4xl">
+          <div className="text-black text-4xl">
             {card.icon}
           </div>
         </div>
         
         {/* Title */}
-        <h3 className="text-xl font-semibold text-white mb-4 leading-tight relative z-10">
+        <h3 className="text-xl font-semibold text-black mb-4 leading-tight relative z-10">
           {card.title}
         </h3>
         
         {/* Description */}
-        <p className="text-white/60 text-base leading-relaxed max-w-xs relative z-10">
+        <p className="text-black/60 text-base leading-relaxed max-w-xs relative z-10">
           {card.description}
         </p>
       </div>
@@ -165,7 +165,7 @@ const FeatureCardComponent = ({ card, index }: { card: FeatureCard; index: numbe
 
 export default function TeamPotentialSection() {
   return (
-    <section className="relative min-h-screen bg-black py-20 px-4 overflow-hidden">
+    <section className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
       {/* Animated background elements */}
       <MovingLines />
       
@@ -197,8 +197,8 @@ export default function TeamPotentialSection() {
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }}
@@ -213,10 +213,10 @@ export default function TeamPotentialSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-black mb-6">
           Unlock Effortless Academic Writing  
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-black/70 max-w-3xl mx-auto leading-relaxed">
           Generate research papers, journals, and reports faster with AI-powered tools
             <br />
             from structured drafting to citations, editing, and visuals.

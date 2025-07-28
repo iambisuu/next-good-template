@@ -30,7 +30,7 @@ const CursorTrail = memo(() => {
 
   return (
     <div
-      className="fixed pointer-events-none z-50 w-3 h-3 bg-white rounded-full "
+      className="fixed pointer-events-none z-50 w-3 h-3 bg-black rounded-full"
       style={{
         left: `${trailPosition.x - 6}px`,
         top: `${trailPosition.y - 6}px`,

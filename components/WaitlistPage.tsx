@@ -5,8 +5,8 @@ import { trackWaitlistSubmission } from '../lib/utils/analytics';
 // Memoize static content sections
 const Logo = memo(() => (
   <div className="mb-16 transform-gpu">
-    <div className="w-20 h-20 bg-black rounded-2xl border border-white/20 flex items-center justify-center">
-      <div className="text-white text-3xl font-bold transform -rotate-12">
+    <div className="w-20 h-20 bg-white rounded-2xl border border-black/20 flex items-center justify-center">
+      <div className="text-black text-3xl font-bold transform -rotate-12">
         ∅
       </div>
     </div>
@@ -16,10 +16,10 @@ Logo.displayName = 'Logo';
 
 const Heading = memo(() => (
   <div className="text-center mb-12 transform-gpu">
-    <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-white mb-8 leading-tight">
+    <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-black mb-8 leading-tight">
       Join the waitlist
     </h1>
-    <p className="text-white/50 text-lg md:text-xl max-w-md mx-auto leading-relaxed">
+    <p className="text-black/50 text-lg md:text-xl max-w-md mx-auto leading-relaxed">
       Unlock early access to premium AI writing suite<br />
       Get access to beta before anyone else.
     </p>
@@ -29,13 +29,13 @@ Heading.displayName = 'Heading';
 
 const BackedBy = memo(() => (
   <div className="text-center transform-gpu">
-    <p className="text-white/50 text-sm mb-8">
+    <p className="text-black/50 text-sm mb-8">
       Backed by
     </p>
     <div className="flex items-center justify-center gap-8 opacity-70">
-      {/* <div className="text-white text-xl font-medium">weire</div> */}
-      <div className="text-white text-xl font-medium">ezprep*</div>
-      <div className="text-white text-xl font-medium">startup india</div>
+      {/* <div className="text-black text-xl font-medium">weire</div> */}
+      <div className="text-black text-xl font-medium">ezprep*</div>
+      <div className="text-black text-xl font-medium">startup india</div>
     </div>
   </div>
 ));
@@ -48,7 +48,7 @@ const StatusMessage = memo(({ type, message }: { type: 'success' | 'error' | nul
   return (
     <div
       className={`text-sm transform-gpu ${
-        type === 'success' ? 'text-green-400' : 'text-red-400'
+        type === 'success' ? 'text-green-600' : 'text-red-600'
       }`}
     >
       {message}
@@ -84,14 +84,14 @@ const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
           type="email"
           placeholder="your@email.com"
           onKeyPress={handleKeyPress}
-          className="px-6 py-4 bg-white/10 border border-white/40 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors w-80"
+          className="px-6 py-4 bg-black/10 border border-black/40 rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors w-80"
           disabled={isSubmitting}
         />
         <button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className={`px-8 py-4 cursor-pointer bg-white text-black font-semibold rounded-xl transition-colors whitespace-nowrap ${
-            isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'
+          className={`px-8 py-4 cursor-pointer bg-black text-white font-semibold rounded-xl transition-colors whitespace-nowrap ${
+            isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/80'
           }`}
         >
           {isSubmitting ? 'Joining...' : 'Join waitlist'}
@@ -158,7 +158,7 @@ const WaitlistSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="waitlist-form" className="min-h-screen bg-black flex flex-col items-center justify-center px-6 py-20 font-sans">
+    <section id="waitlist-form" className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-20 font-sans">
       <Logo />
       <Heading />
       <WaitlistForm 
@@ -167,13 +167,13 @@ const WaitlistSection: React.FC = () => {
         status={status}
       />
       <div className="relative w-100 mb-12 h-px transform-gpu">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 mask-gradient"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black to-transparent opacity-60 mask-gradient"></div>
       </div>
       <BackedBy />
       <style jsx>{`
         .mask-gradient {
-          mask-image: linear-gradient(to right, transparent 0%, white 30%, white 70%, transparent 100%);
-          -webkit-mask-image: linear-gradient(to right, transparent 0%, white 30%, white 70%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
         }
       `}</style>
     </section>

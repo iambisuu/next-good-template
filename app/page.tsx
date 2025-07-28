@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <main 
-      className="relative"
+      className="relative bg-white"
       style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}
     >
       <CursorTrail />

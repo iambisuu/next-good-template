@@ -105,7 +105,7 @@ const FAQSection: React.FC = () => {
       <style dangerouslySetInnerHTML={{ __html: fontFaceStyle }} />
       <div 
         id="faq"
-        className="min-h-screen bg-black text-white py-20 px-4"
+        className="min-h-screen bg-white text-black py-20 px-4"
         style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
       >
         <div className="max-w-7xl mx-auto">
@@ -119,28 +119,28 @@ const FAQSection: React.FC = () => {
               variants={headerVariants}
             >
               <div 
-                className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-400 px-4 py-2 rounded-full text-sm mb-8"
+                className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-600 px-4 py-2 rounded-full text-sm mb-8"
                 style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
               >
-                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                 FAQ
               </div>
               
               <h1 
-                className="text-5xl md:text-6xl font-semibold text-white mb-2"
+                className="text-5xl md:text-6xl font-semibold text-black mb-2"
                 style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
               >
                 Frequently
               </h1>
               <h2 
-                className="text-5xl md:text-6xl font-semibold text-white/60 mb-8"
+                className="text-5xl md:text-6xl font-semibold text-black/60 mb-8"
                 style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
               >
                 Asked Questions
               </h2>
               
               <p 
-                className="text-white/60 text-lg leading-relaxed max-w-md"
+                className="text-black/60 text-lg leading-relaxed max-w-md"
                 style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
               >
                 Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.
@@ -158,25 +158,25 @@ const FAQSection: React.FC = () => {
               {faqItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="border border-white/10 rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm"
+                  className="border border-black/10 rounded-2xl overflow-hidden bg-white/20 backdrop-blur-sm shadow-lg"
                   variants={itemVariants}
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors duration-200"
+                    className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-black/5 transition-colors duration-200"
                     style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
                   >
                     <span 
-                      className="text-white text-lg font-medium pr-4"
+                      className="text-black text-lg font-medium pr-4"
                       style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
                     >
                       {item.question}
                     </span>
                     <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
                       {openIndex === index ? (
-                        <RiSubtractLine className="w-5 h-5 text-white" />
+                        <RiSubtractLine className="w-5 h-5 text-black" />
                       ) : (
-                        <RiAddLine className="w-5 h-5 text-white" />
+                        <RiAddLine className="w-5 h-5 text-black" />
                       )}
                     </div>
                   </button>
@@ -195,7 +195,7 @@ const FAQSection: React.FC = () => {
                   >
                     <div className="px-6 pb-6 pt-0">
                       <p 
-                        className="text-white/70 text-base leading-relaxed"
+                        className="text-black/70 text-base leading-relaxed"
                         style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
                       >
                         {item.answer}

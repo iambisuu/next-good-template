@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-black/10 transition-transform duration-300 ease-in-out ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
         style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="text-white text-xl font-semibold">Intellirite</span>
+              <span className="text-black text-xl font-semibold">Intellirite</span>
             </div>
 
             {/* Navigation Links */}
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="#features" 
                 onClick={(e) => handleSmoothScroll(e, 'features')}
-                className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+                className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">Features</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Features</span>
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="#what-we-offer" 
                 onClick={(e) => handleSmoothScroll(e, 'what-we-offer')}
-                className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+                className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">What we offer</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About App</span>
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="#contact" 
                 onClick={(e) => handleSmoothScroll(e, 'contact')}
-                className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+                className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">Contact</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Contact</span>
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="#faq" 
                 onClick={(e) => handleSmoothScroll(e, 'faq')}
-                className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+                className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">FAQ</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>FAQ</span>
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="#about-us" 
                 onClick={(e) => handleSmoothScroll(e, 'about-us')}
-                className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+                className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">About Us</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About Us</span>
@@ -116,7 +116,7 @@ const Navbar: React.FC = () => {
 
             <button 
               onClick={openModal}
-              className="bg-white text-black  px-6 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-lg hover:bg-white/80 cursor-pointer hover:scale-105 active:scale-95"
+              className="bg-black text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-lg hover:bg-black/80 cursor-pointer hover:scale-105 active:scale-95"
             >
               Join Waitlist
             </button>
