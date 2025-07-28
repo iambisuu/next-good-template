@@ -57,9 +57,9 @@ export default function Home() {
       <CursorTrail />
       <Navbar />
       <Hero />
-      <WaitlistSection />
-      <Features />
       <AboutUs />
+      <Features />
+      <WaitlistSection />
       <ComparisonSection />
       <FAQSection />
       <Footer />

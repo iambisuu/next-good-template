@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
       style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}
     >
       {/* Main Content */}
-      <div className="text-center max-w-5xl mx-auto mb-16">
+      <div className="text-center max-w-5xl mx-auto mb-[25px]">
         {/* Main Heading */}
         <h1 className="text-black text-5xl mt-16 md:text-6xl lg:text-6xl font-bold leading-tight mb-8">
         Smart Writing, Made Simple <br />
@@ -104,12 +104,12 @@ const Hero: React.FC = () => {
         </h1>
         
         {/* Subtext */}
-        <p className="text-gray-600 text-xl mb-8">
+        <p className="text-gray-600 text-xl mb-2">
         AI-Powered Research Made Simple.
         </p>
 
         {/* Email Form */}
-        <div className="max-w-md mx-auto mb-4">
+        <div className="max-w-md mx-auto">
           <div className="relative">
             <div className="flex rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-gray-300 focus-within:border-black transition-all duration-300">
               <div className="relative flex-1">
@@ -163,9 +163,9 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Additional Info */}
-        <p className="text-gray-500 text-sm">
+        <div className="text-gray-500 text-sm">
           Join 10,000+ writers already on the waitlist • No spam, ever
-        </p>
+        </div>
       </div>
 
       {/* Featured Plans Section */}
