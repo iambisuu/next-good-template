@@ -25,6 +25,21 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = 80; // Approximate navbar height
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ease-in-out ${
@@ -41,23 +56,43 @@ const Navbar: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a 
+              href="#features" 
+              onClick={(e) => handleSmoothScroll(e, 'features')}
+              className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+            >
               <span className="block transition-transform duration-300 ease-out">Features</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Features</span>
             </a>
-            <a href="#" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a 
+              href="#what-we-offer" 
+              onClick={(e) => handleSmoothScroll(e, 'what-we-offer')}
+              className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+            >
               <span className="block transition-transform duration-300 ease-out">What we offer</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About App</span>
             </a>
-            <a href="#" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a 
+              href="#contact" 
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+            >
               <span className="block transition-transform duration-300 ease-out">Contact</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Contact</span>
             </a>
-            <a href="#faq" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a 
+              href="#faq" 
+              onClick={(e) => handleSmoothScroll(e, 'faq')}
+              className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+            >
               <span className="block transition-transform duration-300 ease-out">FAQ</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>FAQ</span>
             </a>
-            <a href="#about-us" className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6">
+            <a 
+              href="#about-us" 
+              onClick={(e) => handleSmoothScroll(e, 'about-us')}
+              className="nav-link text-white transition-all duration-300 overflow-hidden relative inline-block h-6"
+            >
               <span className="block transition-transform duration-300 ease-out">About Us</span>
               <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About Us</span>
             </a>
