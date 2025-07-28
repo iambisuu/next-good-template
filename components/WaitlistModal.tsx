@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { submitToWaitlist } from '../lib/utils/waitlist';
+import { trackWaitlistSubmission } from '../lib/utils/analytics';
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -68,6 +69,9 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
       const result = await submitToWaitlist({ email });
       
       if (result.success) {
+        // Track successful submission
+        trackWaitlistSubmission(email);
+        
         setStatus({
           type: 'success',
           message: 'Thanks for joining the waitlist! We\'ll be in touch soon.',

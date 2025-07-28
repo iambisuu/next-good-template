@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import WaitlistModal from './WaitlistModal';
+import { trackButtonClick, trackScrollToSection } from '../lib/utils/analytics';
 
 const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -39,10 +40,14 @@ const Navbar: React.FC = () => {
         top: targetPosition,
         behavior: 'smooth'
       });
+      
+      // Track scroll to section
+      trackScrollToSection(targetId);
     }
   };
 
   const openModal = () => {
+    trackButtonClick('join_waitlist', 'navbar');
     setIsModalOpen(true);
   };
 

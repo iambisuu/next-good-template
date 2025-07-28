@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { trackButtonClick, trackScrollToSection } from '../lib/utils/analytics';
 
 const Hero: React.FC = () => {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -14,7 +15,15 @@ const Hero: React.FC = () => {
         top: targetPosition,
         behavior: 'smooth'
       });
+      
+      // Track button click and scroll
+      trackButtonClick('join_waitlist', 'hero');
+      trackScrollToSection('waitlist-form');
     }
+  };
+
+  const handleLearnMore = () => {
+    trackButtonClick('learn_more', 'hero');
   };
 
   return (
@@ -60,7 +69,10 @@ const Hero: React.FC = () => {
           >
             Join the Waitlist
           </button>
-          <button className="bg-gray-800/50 cursor-pointer backdrop-blur-sm text-white px-8 py-3.5 rounded-lg font-medium border border-gray-600/50 hover:bg-gray-700/70 transition-colors duration-300">
+          <button 
+            onClick={handleLearnMore}
+            className="bg-gray-800/50 cursor-pointer backdrop-blur-sm text-white px-8 py-3.5 rounded-lg font-medium border border-gray-600/50 hover:bg-gray-700/70 transition-colors duration-300"
+          >
             Learn More
           </button>
         </div>

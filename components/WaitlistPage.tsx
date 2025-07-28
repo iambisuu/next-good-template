@@ -1,5 +1,6 @@
 import React, { useRef, useState, memo, useCallback } from 'react';
 import { submitToWaitlist } from '../lib/utils/waitlist';
+import { trackWaitlistSubmission } from '../lib/utils/analytics';
 
 // Memoize static content sections
 const Logo = memo(() => (
@@ -126,6 +127,9 @@ const WaitlistSection: React.FC = () => {
       const result = await submitToWaitlist({ email });
       
       if (result.success) {
+        // Track successful submission
+        trackWaitlistSubmission(email);
+        
         setStatus({
           type: 'success',
           message: 'Thanks for joining the waitlist! We\'ll be in touch soon.',

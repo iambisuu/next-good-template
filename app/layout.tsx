@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
-  title: "Nubien - AI-Driven Success",
-  description: "Creating latest solutions that redefine innovation. Stay ahead with AI-powered technology for the future.",
+  title: "Intellirite - AI-Powered Research Platform",
+  description: "Generate complete, human-quality research papers section-by-section with AI-powered tools.",
 };
 
 export default function RootLayout({
@@ -18,6 +20,8 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
