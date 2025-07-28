@@ -58,8 +58,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WaitlistSection />
-      <AboutUs />
       <Features />
+      <AboutUs />
       <ComparisonSection />
       <FAQSection />
       <Footer />

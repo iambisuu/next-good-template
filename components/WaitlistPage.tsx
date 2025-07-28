@@ -29,11 +29,11 @@ Heading.displayName = 'Heading';
 
 const BackedBy = memo(() => (
   <div className="text-center transform-gpu">
-    <p className="text-gray-500 text-sm mb-8">
+    <p className="text-white/50 text-sm mb-8">
       Backed by
     </p>
     <div className="flex items-center justify-center gap-8 opacity-70">
-      <div className="text-white text-xl font-medium">weire</div>
+      {/* <div className="text-white text-xl font-medium">weire</div> */}
       <div className="text-white text-xl font-medium">ezprep*</div>
       <div className="text-white text-xl font-medium">startup india</div>
     </div>
@@ -70,6 +70,12 @@ const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
     onSubmit(email);
   }, [onSubmit]);
 
+  const handleKeyPress = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && !isSubmitting) {
+      handleSubmit();
+    }
+  }, [handleSubmit, isSubmitting]);
+
   return (
     <div className="flex flex-col items-center gap-4 mb-20 transform-gpu">
       <div className="flex flex-col sm:flex-row gap-4">
@@ -77,13 +83,14 @@ const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
           ref={emailRef}
           type="email"
           placeholder="your@email.com"
+          onKeyPress={handleKeyPress}
           className="px-6 py-4 bg-white/10 border border-white/40 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors w-80"
           disabled={isSubmitting}
         />
         <button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className={`px-8 py-4 bg-white text-black font-semibold rounded-xl transition-colors whitespace-nowrap ${
+          className={`px-8 py-4 cursor-pointer bg-white text-black font-semibold rounded-xl transition-colors whitespace-nowrap ${
             isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'
           }`}
         >
