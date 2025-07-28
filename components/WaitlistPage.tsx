@@ -147,7 +147,7 @@ const WaitlistSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-black flex flex-col items-center justify-center px-6 py-20 font-sans">
+    <section id="waitlist-form" className="min-h-screen bg-black flex flex-col items-center justify-center px-6 py-20 font-sans">
       <Logo />
       <Heading />
       <WaitlistForm 

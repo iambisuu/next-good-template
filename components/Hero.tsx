@@ -2,6 +2,21 @@ import React from 'react';
 import Image from 'next/image';
 
 const Hero: React.FC = () => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    
+    const waitlistForm = document.getElementById('waitlist-form');
+    if (waitlistForm) {
+      const navbarHeight = 80; // Approximate navbar height
+      const targetPosition = waitlistForm.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section 
       className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden"
@@ -39,7 +54,10 @@ const Hero: React.FC = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-20">
-          <button className="bg-white cursor-pointer text-black px-8 py-3.5 rounded-lg font-medium hover:bg-white/80 transition-colors duration-300 shadow-lg">
+          <button 
+            onClick={handleSmoothScroll}
+            className="bg-white cursor-pointer text-black px-8 py-3.5 rounded-lg font-medium hover:bg-white/80 transition-colors duration-300 shadow-lg hover:scale-105 active:scale-95"
+          >
             Join the Waitlist
           </button>
           <button className="bg-gray-800/50 cursor-pointer backdrop-blur-sm text-white px-8 py-3.5 rounded-lg font-medium border border-gray-600/50 hover:bg-gray-700/70 transition-colors duration-300">

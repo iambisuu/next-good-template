@@ -204,7 +204,7 @@ export default function TeamPotentialSection() {
         }}
       />
 
-      <div id='features' className="relative z-10 max-w-7xl mx-auto">
+      <div id="features" className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
