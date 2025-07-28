@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { ArrowRight, Mail, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export type WaitlistSubmission = {
   name?: string
@@ -90,26 +91,77 @@ const Hero: React.FC = () => {
     if (error) setError('');
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1
+    }
+  };
+
   return (
-    <section 
+    <motion.section 
       className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6 py-16"
       style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
       {/* Main Content */}
-      <div className="text-center max-w-5xl mx-auto mb-[25px]">
+      <motion.div 
+        className="text-center max-w-5xl mx-auto mb-[25px]"
+        variants={itemVariants}
+      >
         {/* Main Heading */}
-        <h1 className="text-black text-5xl mt-16 md:text-6xl lg:text-6xl font-bold leading-tight mb-8">
-        Smart Writing, Made Simple <br />
-       <span className='text-black text-5xl mt-12 md:text-4xl lg:text-6xl font-bold leading-tight mb-8'>Turn your ideas into polished content</span> 
-        </h1>
+        <motion.h1 
+          className="text-black text-5xl mt-16 md:text-6xl lg:text-6xl font-bold leading-tight mb-8"
+          variants={itemVariants}
+        >
+          Smart Writing, Made Simple <br />
+          <span className='text-black text-5xl mt-12 md:text-4xl lg:text-6xl font-bold leading-tight mb-8'>Turn your ideas into polished content</span> 
+        </motion.h1>
         
         {/* Subtext */}
-        <p className="text-gray-600 text-xl mb-2">
-        AI-Powered Research Made Simple.
-        </p>
+        <motion.p 
+          className="text-gray-600 text-xl mb-2"
+          variants={itemVariants}
+        >
+          AI-Powered Research Made Simple.
+        </motion.p>
 
         {/* Email Form */}
-        <div className="max-w-md mx-auto">
+        <motion.div 
+          className="max-w-md mx-auto"
+          variants={itemVariants}
+        >
           <div className="relative">
             <div className="flex rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-gray-300 focus-within:border-black transition-all duration-300">
               <div className="relative flex-1">
@@ -159,29 +211,43 @@ const Hero: React.FC = () => {
                 Successfully joined the waitlist! Check your email for confirmation.
               </p>
             )}
+            
           </div>
-        </div>
+        </motion.div>
 
         {/* Additional Info */}
-        <div className="text-gray-500 text-sm">
+        <motion.div 
+          className="text-gray-500 text-sm"
+          variants={itemVariants}
+        >
           Join 10,000+ writers already on the waitlist • No spam, ever
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Featured Plans Section */}
-      <div className="w-full max-w-7xl mx-auto">
+      <motion.div 
+        className="w-full max-w-7xl mx-auto"
+        variants={itemVariants}
+      >
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-8">
+        <motion.div 
+          className="flex items-center justify-between mb-8"
+          variants={itemVariants}
+        >
           <h2 className="text-black text-3xl font-bold">Featured Plans</h2>
           <button className="text-black text-lg font-medium hover:underline">
             Explore All
           </button>
-        </div>
+        </motion.div>
 
         {/* Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Idea to Impact Plan */}
-          <div className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#5fcca0' }}>
+          <motion.div 
+            className="rounded-2xl p-5 text-black" 
+            style={{ backgroundColor: '#5fcca0' }}
+            variants={cardVariants}
+          >
             <div className="text-sm font-medium mb-2 opacity-80">STRATEGY</div>
             <h3 className="text-2xl font-bold mb-4">Idea to Impact</h3>
             <p className="text-sm mb-6 opacity-90">
@@ -196,10 +262,14 @@ const Hero: React.FC = () => {
                 <ArrowRight size={20} />
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Long-Term Edge Plan */}
-          <div className="rounded-2xl p-5 text-white" style={{ backgroundColor: '#0a0a0a' }}>
+          <motion.div 
+            className="rounded-2xl p-5 text-white" 
+            style={{ backgroundColor: '#0a0a0a' }}
+            variants={cardVariants}
+          >
             <div className="text-sm font-medium mb-2 opacity-80">PLAN</div>
             <h3 className="text-2xl font-bold mb-4">Long-Term Edge</h3>
             <p className="text-sm mb-6 opacity-90">
@@ -214,10 +284,14 @@ const Hero: React.FC = () => {
                 <ArrowRight size={20} />
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Focused Creation Plan */}
-          <div className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#cb9bfb' }}>
+          <motion.div 
+            className="rounded-2xl p-5 text-black" 
+            style={{ backgroundColor: '#cb9bfb' }}
+            variants={cardVariants}
+          >
             <div className="text-sm font-medium mb-2 opacity-80">STRATEGY</div>
             <h3 className="text-2xl font-bold mb-4">Focused Creation</h3>
             <p className="text-sm mb-6 opacity-90">
@@ -232,10 +306,14 @@ const Hero: React.FC = () => {
                 <ArrowRight size={20} />
               </button>
             </div>
-            </div>
+          </motion.div>
 
           {/* Reliable Output Plan */}
-          <div className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#f9fd91' }}>
+          <motion.div 
+            className="rounded-2xl p-5 text-black" 
+            style={{ backgroundColor: '#f9fd91' }}
+            variants={cardVariants}
+          >
             <div className="text-sm font-medium mb-2 opacity-80">PLAN</div>
             <h3 className="text-2xl font-bold mb-4">Reliable Output</h3>
             <p className="text-sm mb-6 opacity-90">
@@ -250,10 +328,10 @@ const Hero: React.FC = () => {
                 <ArrowRight size={20} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
