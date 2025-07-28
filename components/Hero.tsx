@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   return (
@@ -11,10 +12,12 @@ const Hero: React.FC = () => {
       
       {/* Image positioned at bottom - removed bottom margin to end exactly at page */}
       <div className="absolute left-0 right-0 h-92 bottom-0">
-        <img 
+        <Image 
           src="/hero.avif" 
           alt="Hero Background" 
-          className="w-full h-full object-cover object-top"
+          fill
+          className="object-cover object-top"
+          priority
         />
         {/* Gradient overlay for fade effect at bottom 20% only */}
         <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-black to-transparent"></div>

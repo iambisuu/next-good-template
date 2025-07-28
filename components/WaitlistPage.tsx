@@ -11,6 +11,7 @@ const Logo = memo(() => (
     </div>
   </div>
 ));
+Logo.displayName = 'Logo';
 
 const Heading = memo(() => (
   <div className="text-center mb-12 transform-gpu">
@@ -23,6 +24,7 @@ const Heading = memo(() => (
     </p>
   </div>
 ));
+Heading.displayName = 'Heading';
 
 const BackedBy = memo(() => (
   <div className="text-center transform-gpu">
@@ -36,6 +38,7 @@ const BackedBy = memo(() => (
     </div>
   </div>
 ));
+BackedBy.displayName = 'BackedBy';
 
 // Status message component
 const StatusMessage = memo(({ type, message }: { type: 'success' | 'error' | null; message: string }) => {
@@ -51,6 +54,7 @@ const StatusMessage = memo(({ type, message }: { type: 'success' | 'error' | nul
     </div>
   );
 });
+StatusMessage.displayName = 'StatusMessage';
 
 // Main form component
 const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
@@ -89,6 +93,7 @@ const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
     </div>
   );
 });
+WaitlistForm.displayName = 'WaitlistForm';
 
 const WaitlistSection: React.FC = () => {
   const [status, setStatus] = useState<{
@@ -131,7 +136,7 @@ const WaitlistSection: React.FC = () => {
           message: result.error || 'Something went wrong. Please try again.',
         });
       }
-    } catch (error) {
+    } catch {
       setStatus({
         type: 'error',
         message: 'Something went wrong. Please try again.',

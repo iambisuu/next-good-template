@@ -36,7 +36,7 @@ const initLenis = async () => {
 
 export default function Home() {
   useEffect(() => {
-    let lenis: any = null;
+    let lenis: ReturnType<typeof initLenis> extends Promise<infer T> ? T : never = null;
     
     initLenis().then((instance) => {
       lenis = instance;
