@@ -45,11 +45,11 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "Is this tool free to use?",
-      answer: "We’re launching with a free waitlist access for early users. Premium plans with advanced features will be available soon. Join the waitlist to get notified first!"
+      answer: "We're launching with a free waitlist access for early users. Premium plans with advanced features will be available soon. Join the waitlist to get notified first!"
     },
     {
       question: "How do I join the waitlist?",
-      answer: "Simply enter your email on our homepage or waitlist page. You’ll be the first to know when IntelliRite launches publicly."
+      answer: "Simply enter your email on our homepage or waitlist page. You'll be the first to know when IntelliRite launches publicly."
     },
     {
       question: "Will I get early access if I join the waitlist?",
@@ -109,47 +109,50 @@ const FAQSection: React.FC = () => {
         style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-16 items-start">
-            {/* Left Column - Header */}
+          <div className="grid lg:grid-cols-5 gap-20 items-start">
+            {/* Left Column - Header - Fixed positioning to prevent fluctuation */}
             <motion.div
-              className="lg:sticky lg:top-20 pl-8 lg:col-span-2"
+              className="lg:sticky lg:top-24 lg:col-span-2 flex-shrink-0"
+              style={{ alignSelf: 'flex-start' }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={headerVariants}
             >
-              <div 
-                className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-600 px-4 py-2 rounded-full text-sm mb-8"
-                style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
-              >
-                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                FAQ
+              <div className="pl-8">
+                <div 
+                  className="inline-flex items-center gap-2 bg-purple-600/20 text-purple-600 px-4 py-2 rounded-full text-sm mb-8"
+                  style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
+                >
+                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                  FAQ
+                </div>
+                
+                <h1 
+                  className="text-5xl md:text-6xl font-semibold text-black mb-2"
+                  style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
+                >
+                  Frequently
+                </h1>
+                <h2 
+                  className="text-5xl md:text-6xl font-semibold text-black/60 mb-8"
+                  style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
+                >
+                  Asked Questions
+                </h2>
+                
+                <p 
+                  className="text-black/60 text-lg leading-relaxed max-w-md"
+                  style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
+                >
+                  Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.
+                </p>
               </div>
-              
-              <h1 
-                className="text-5xl md:text-6xl font-semibold text-black mb-2"
-                style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
-              >
-                Frequently
-              </h1>
-              <h2 
-                className="text-5xl md:text-6xl font-semibold text-black/60 mb-8"
-                style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
-              >
-                Asked Questions
-              </h2>
-              
-              <p 
-                className="text-black/60 text-lg leading-relaxed max-w-md"
-                style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
-              >
-                Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.
-              </p>
             </motion.div>
 
             {/* Right Column - FAQ Items */}
             <motion.div
-              className="space-y-4 lg:col-span-3"
+              className="space-y-6 lg:col-span-3"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
@@ -160,10 +163,11 @@ const FAQSection: React.FC = () => {
                   key={index}
                   className="border border-black/10 rounded-2xl overflow-hidden bg-white/20 backdrop-blur-sm shadow-lg"
                   variants={itemVariants}
+                  layout
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-black/5 transition-colors duration-200"
+                    className="w-full px-6 py-6 flex items-center justify-between text-left hover:bg-black/5 transition-colors duration-300"
                     style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
                   >
                     <span 
@@ -172,13 +176,17 @@ const FAQSection: React.FC = () => {
                     >
                       {item.question}
                     </span>
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                    <motion.div 
+                      className="flex-shrink-0 w-6 h-6 flex items-center justify-center"
+                      animate={{ rotate: openIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
                       {openIndex === index ? (
                         <RiSubtractLine className="w-5 h-5 text-black" />
                       ) : (
                         <RiAddLine className="w-5 h-5 text-black" />
                       )}
-                    </div>
+                    </motion.div>
                   </button>
                   
                   <motion.div
@@ -188,19 +196,37 @@ const FAQSection: React.FC = () => {
                       opacity: openIndex === index ? 1 : 0
                     }}
                     transition={{
-                      duration: 0.3,
-                      ease: "easeInOut"
+                      height: {
+                        duration: 0.4,
+                        ease: [0.04, 0.62, 0.23, 0.98]
+                      },
+                      opacity: {
+                        duration: 0.3,
+                        ease: "easeInOut",
+                        delay: openIndex === index ? 0.1 : 0
+                      }
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 pt-0">
+                    <motion.div 
+                      className="px-6 pb-6 pt-0"
+                      initial={false}
+                      animate={{
+                        y: openIndex === index ? 0 : -10
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                        delay: openIndex === index ? 0.1 : 0
+                      }}
+                    >
                       <p 
-                        className="text-black/70 text-base leading-relaxed"
+                        className="text-black/70 text-base leading-relaxed mt-4"
                         style={{ fontFamily: 'SF Pro, -apple-system, BlinkMacSystemFont, sans-serif' }}
                       >
                         {item.answer}
                       </p>
-                    </div>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               ))}

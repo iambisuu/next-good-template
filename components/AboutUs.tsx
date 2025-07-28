@@ -38,7 +38,7 @@ export default function AboutUs() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Create animated text with character-by-character color transition
+  // Create animated text with character-by-character color transition from light to black
   const AnimatedText = ({ text, className = '' }: { text: string; className?: string }) => {
     const words = text.split(' ');
     let characterIndex = 0;
@@ -50,14 +50,21 @@ export default function AboutUs() {
             {word.split('').map((char, charIndex) => {
               const currentCharIndex = characterIndex++;
               const totalChars = text.replace(/ /g, '').length;
-              const charProgress = Math.max(0, (scrollProgress * totalChars) - currentCharIndex) / 1;
+              // Start animation only after 20% scroll progress to ensure text starts light
+              const adjustedProgress = Math.max(0, scrollProgress - 0.2) / 0.8;
+              const charProgress = Math.max(0, (adjustedProgress * totalChars * 1.5) - currentCharIndex) / 1;
               const opacity = Math.min(Math.max(charProgress, 0), 1);
+              
+              // Start with light gray (rgb(156, 163, 175)) and transition to black (rgb(0, 0, 0))
+              const lightGray = 156;
+              const black = 0;
+              const colorValue = lightGray + (black - lightGray) * opacity;
               
               return (
                 <span
                   key={charIndex}
                   style={{
-                    color: `rgb(${101 + (154 - 101) * opacity}, ${101 + (154 - 101) * opacity}, ${101 + (154 - 101) * opacity})`,
+                    color: `rgb(${colorValue}, ${colorValue}, ${colorValue})`,
                     transition: 'color 0.1s ease-out'
                   }}
                 >
@@ -65,7 +72,15 @@ export default function AboutUs() {
                 </span>
               );
             })}
-            {wordIndex < words.length - 1 && <span style={{ color: `rgb(${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)}, ${101 + (154 - 101) * Math.min(scrollProgress * text.replace(/ /g, '').length - characterIndex + 1, 1)})` }}> </span>}
+            {wordIndex < words.length - 1 && (
+              <span 
+                style={{ 
+                  color: `rgb(${156 + (0 - 156) * Math.min(Math.max(0, scrollProgress - 0.2) / 0.8 * text.replace(/ /g, '').length * 1.5 - characterIndex + 1, 1)}, ${156 + (0 - 156) * Math.min(Math.max(0, scrollProgress - 0.2) / 0.8 * text.replace(/ /g, '').length * 1.5 - characterIndex + 1, 1)}, ${156 + (0 - 156) * Math.min(Math.max(0, scrollProgress - 0.2) / 0.8 * text.replace(/ /g, '').length * 1.5 - characterIndex + 1, 1)})` 
+                }}
+              >
+                {' '}
+              </span>
+            )}
           </span>
         ))}
       </span>
