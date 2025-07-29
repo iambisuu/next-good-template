@@ -80,22 +80,22 @@ const Navbar: React.FC = () => {
                 <span className="block transition-transform duration-300 ease-out">Features</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Features</span>
               </a>
-              <a 
+              {/* <a 
                 href="#what-we-offer" 
                 onClick={(e) => handleSmoothScroll(e, 'what-we-offer')}
                 className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">What we offer</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About App</span>
-              </a>
-              <a 
+              </a> */}
+              {/* <a 
                 href="#contact" 
                 onClick={(e) => handleSmoothScroll(e, 'contact')}
                 className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">Contact</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Contact</span>
-              </a>
+              </a> */}
               <a 
                 href="#faq" 
                 onClick={(e) => handleSmoothScroll(e, 'faq')}
@@ -104,14 +104,14 @@ const Navbar: React.FC = () => {
                 <span className="block transition-transform duration-300 ease-out">FAQ</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>FAQ</span>
               </a>
-              <a 
+              {/* <a 
                 href="#about-us" 
                 onClick={(e) => handleSmoothScroll(e, 'about-us')}
                 className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">About Us</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>About Us</span>
-              </a>
+              </a> */}
             </div>
 
             <button 
