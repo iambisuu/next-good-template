@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-black/10 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md border-b border-black/10 transition-transform duration-300 ease-in-out ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
         style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif" }}
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="text-black text-xl font-semibold">Intellirite</span>
+              <img src="/f.png" alt="Intellirite" className="h-[45px]" />
             </div>
 
             {/* Navigation Links */}
