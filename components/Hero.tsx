@@ -118,7 +118,7 @@ const Hero: React.FC = () => {
       } else {
         setError(result.error || 'Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);

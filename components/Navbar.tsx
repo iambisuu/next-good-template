@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import WaitlistModal from './WaitlistModal';
 import { trackButtonClick, trackScrollToSection } from '../lib/utils/analytics';
 
@@ -66,9 +67,9 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center">
-              <img src="/f.png" alt="Intellirite" className="h-[45px]" />
-            </div>
+                          <div className="flex items-center">
+                <Image src="/f.png" alt="Intellirite" width={45} height={45} className="h-[45px]" />
+              </div>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
