@@ -26,12 +26,12 @@ model WaitlistEntry {
 
 model ContactSubmission {
   id          String   @id @default(uuid())
-  firstName   String
-  lastName    String
-  email       String
-  countryName String
-  companyType String
-  message     String
+  firstName   String?
+  lastName    String?
+  email       String?
+  countryName String?
+  companyType String?
+  message     String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
