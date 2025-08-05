@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+// Framer Contact Form Submission Code
+// Add this to your Framer interaction on button click
 
-## Getting Started
+const submitContactForm = async () => {
+  // Get form data from your Framer inputs
+  // Replace these with your actual Framer input variable names
+  const firstName = firstNameInput.value; // Your Framer input variable
+  const lastName = lastNameInput.value;   // Your Framer input variable
+  const email = emailInput.value;        // Your Framer input variable
+  const countryName = countryInput.value; // Your Framer input variable
+  const companyType = companyTypeInput.value; // Your Framer input variable
+  const message = messageInput.value;    // Your Framer input variable
 
-First, run the development server:
+  // Show loading state
+  console.log('Submitting form...');
+  
+  // Validate required fields
+  if (!firstName || !lastName || !email || !countryName || !companyType || !message) {
+    console.error('All fields are required');
+    // Show error message to user
+    return;
+  }
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  // Basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    console.error('Please provide a valid email address');
+    // Show error message to user
+    return;
+  }
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  try {
+    const response = await fetch('https://your-domain.vercel.app/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        countryName,
+        companyType,
+        message,
+      }),
+    });
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    const data = await response.json();
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    if (data.success) {
+      console.log('✅ Contact form submitted successfully!');
+      console.log('Response:', data);
+      
+      // Show success message to user
+      // You can trigger a success state in Framer here
+      
+      // Optional: Clear form fields
+      firstNameInput.value = '';
+      lastNameInput.value = '';
+      emailInput.value = '';
+      countryInput.value = '';
+      companyTypeInput.value = '';
+      messageInput.value = '';
+    } else {
+      console.error('❌ Error:', data.error);
+      // Show error message to user
+    }
+  } catch (error) {
+    console.error('❌ Network error:', error);
+    // Show network error message to user
+  }
+};
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+// Call this function on your button click
+submitContactForm();
