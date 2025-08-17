@@ -4,7 +4,7 @@ import { trackWaitlistSubmission } from '../lib/utils/analytics';
 
 // Memoize static content sections
 const Logo = memo(() => (
-  <div className="mb-16 transform-gpu">
+  <div id="waitlist" className="mb-16 transform-gpu">
     <div className="w-20 h-20 bg-white rounded-2xl border border-black/20 flex items-center justify-center">
       <div className="text-black text-3xl font-bold transform -rotate-12">
         ∅
@@ -15,7 +15,7 @@ const Logo = memo(() => (
 Logo.displayName = 'Logo';
 
 const Heading = memo(() => (
-  <div className="text-center mb-12 transform-gpu">
+  <div  className="text-center mb-12 transform-gpu">
     <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-black mb-8 leading-tight">
       Join the waitlist
     </h1>
@@ -77,7 +77,7 @@ const WaitlistForm = memo(({ onSubmit, isSubmitting, status }: {
   }, [handleSubmit, isSubmitting]);
 
   return (
-    <div className="flex flex-col items-center gap-4 mb-20 transform-gpu">
+    <div  className="flex flex-col items-center gap-4 mb-20 transform-gpu">
       <div className="flex flex-col sm:flex-row gap-4">
         <input
           ref={emailRef}

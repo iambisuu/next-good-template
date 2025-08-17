@@ -165,7 +165,7 @@ const FeatureCardComponent = ({ card, index }: { card: FeatureCard; index: numbe
 
 export default function TeamPotentialSection() {
   return (
-    <section className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
+    <section id="features" className="relative min-h-screen bg-white py-20 px-4 overflow-hidden">
       {/* Animated background elements */}
       <MovingLines />
       

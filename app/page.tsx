@@ -61,8 +61,8 @@ export default function Home() {
       <Features />
       <WaitlistSection />
       <ComparisonSection />
-      <FAQSection />
-      <Footer />
+      {/* <FAQSection /> */}
+      {/* <Footer /> */}
     </main>
   );
 }
