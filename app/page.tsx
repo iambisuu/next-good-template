@@ -1,16 +1,10 @@
 'use client';
 
-import AboutUs from '@/components/AboutUs';
-import ComparisonSection from '@/components/Comparison';
-import FAQSection from '@/components/FaqSection';
-import Features from '@/components/Features';
-import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import WaitlistSection from '@/components/WaitlistPage';
 import CursorTrail from '@/components/CursorTrail';
 import { useEffect } from 'react';
-import MainVideo from '@/components/home/MainVideo';
 
 const initLenis = async () => {
   try {

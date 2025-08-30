@@ -3,6 +3,7 @@ import { prisma } from '@/lib/utils/prisma'
 
 // Handle CORS preflight requests
 export async function OPTIONS(request: Request) {
+  console.log('OPTIONS request received', request);
   return new NextResponse(null, {
     status: 200,
     headers: {
