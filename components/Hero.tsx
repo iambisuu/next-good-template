@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { ArrowRight, Mail, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import MainVideo from './home/MainVideo';
 
 // Wobble Card Component
 const WobbleCard = ({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) => {
@@ -187,11 +188,11 @@ const Hero: React.FC = () => {
       >
         {/* Main Heading */}
         <motion.h1 
-          className="text-black text-5xl mt-8 md:text-6xl lg:text-6xl font-bold leading-tight mb-8"
+          className="text-black text-5xl mt-12 md:text-6xl lg:text-6xl font-medium leading-tight mb-8"
           variants={itemVariants}
         >
           Smart Writing, Made Simple <br />
-          <span className='text-black text-5xl mt-12 md:text-4xl lg:text-6xl font-bold leading-tight mb-8'>Turn your ideas into polished content</span> 
+          <span className='text-black text-5xl mt-12 md:text-4xl lg:text-6xl font-medium leading-tight mb-8'>Turn your ideas into polished content</span> 
         </motion.h1>
         
         {/* Subtext */}
@@ -268,105 +269,7 @@ const Hero: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* Featured Plans Section */}
-      <motion.div 
-        className="w-full max-w-7xl mx-auto"
-        variants={itemVariants}
-      >
-        {/* Section Header */}
-        <motion.div 
-          className="flex items-center justify-between mb-8"
-          variants={itemVariants}
-        >
-          <h2 className="text-black text-3xl font-bold">Featured Plans</h2>
-          <button className="text-black text-lg font-medium hover:underline">
-            Explore All
-          </button>
-        </motion.div>
-
-        {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Idea to Impact Plan */}
-          <motion.div variants={cardVariants}>
-            <WobbleCard className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#5fcca0' }}>
-              <div className="text-sm font-medium mb-2 opacity-80">STRATEGY</div>
-              <h3 className="text-2xl font-bold mb-4">Idea to Impact</h3>
-              <p className="text-sm mb-6 opacity-90">
-                Turn scattered thoughts into polished, structured content — fast — using AI-powered writing intelligence.
-              </p>
-              <div className="flex items-end justify-between">
-                <div>
-                  <div className="text-sm opacity-80 mb-1">Drafting Speed</div>
-                  <div className="text-lg font-bold">3× Faster</div>
-                </div>
-                <button className="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            </WobbleCard>
-          </motion.div>
-
-          {/* Long-Term Edge Plan */}
-          <motion.div variants={cardVariants}>
-            <WobbleCard className="rounded-2xl p-5 text-white" style={{ backgroundColor: '#0a0a0a' }}>
-              <div className="text-sm font-medium mb-2 opacity-80">PLAN</div>
-              <h3 className="text-2xl font-bold mb-4">Long-Term Edge</h3>
-              <p className="text-sm mb-6 opacity-90">
-                Stay consistent with smart writing prompts, context memory, and progress tracking that adapts to you.
-              </p>
-              <div className="flex items-end justify-between">
-                <div>
-                  <div className="text-sm opacity-80 mb-1">Skill Growth</div>
-                  <div className="text-lg font-bold">noticeable improvement</div>
-                </div>
-                <button className="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            </WobbleCard>
-          </motion.div>
-
-          {/* Focused Creation Plan */}
-          <motion.div variants={cardVariants}>
-            <WobbleCard className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#cb9bfb' }}>
-              <div className="text-sm font-medium mb-2 opacity-80">STRATEGY</div>
-              <h3 className="text-2xl font-bold mb-4">Focused Creation</h3>
-              <p className="text-sm mb-6 opacity-90">
-                Distraction-free editor, intelligent outlining, and auto-citation keep you in flow — from intro to conclusion.
-              </p>
-              <div className="flex items-end justify-between">
-                <div>
-                  <div className="text-sm opacity-80 mb-1">Time Saved</div>
-                  <div className="text-lg font-bold">2 hours per paper</div>
-                </div>
-                <button className="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            </WobbleCard>
-          </motion.div>
-
-          {/* Reliable Output Plan */}
-          <motion.div variants={cardVariants}>
-            <WobbleCard className="rounded-2xl p-5 text-black" style={{ backgroundColor: '#f9fd91' }}>
-              <div className="text-sm font-medium mb-2 opacity-80">PLAN</div>
-              <h3 className="text-2xl font-bold mb-4">Reliable Output</h3>
-              <p className="text-sm mb-6 opacity-90">
-                Whether it is a journal, research paper, or report — IntelliRite helps you write confidently, every time.
-              </p>
-              <div className="flex items-end justify-between">
-                <div>
-                  <div className="text-sm opacity-80 mb-1">Early Feedback</div>
-                  <div className="text-lg font-bold">writing co-pilot</div>
-                </div>
-                <button className="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            </WobbleCard>
-          </motion.div>
-        </div>
-      </motion.div>
+<MainVideo/>
     </motion.section>
   );
 };

@@ -68,19 +68,19 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <Image src="/f.png" alt="Intellirite" width={120} height={45} className="h-[45px] w-[120px]" />
+              <Image src="/f.png" alt="Intellirite" width={128} height={45} className="h-[45px] w-[120px]" />
             </div>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <a 
+              {/* <a 
                 href="#features" 
                 onClick={(e) => handleSmoothScroll(e, 'features')}
                 className="nav-link text-black transition-all duration-300 overflow-hidden relative inline-block h-6"
               >
                 <span className="block transition-transform duration-300 ease-out">Features</span>
                 <span className="absolute left-0 transition-transform duration-300 ease-out" style={{ top: '150%' }}>Features</span>
-              </a>
+              </a> */}
               <a 
                 href="#waitlist" 
                 onClick={(e) => handleSmoothScroll(e, 'waitlist')}

@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar';
 import WaitlistSection from '@/components/WaitlistPage';
 import CursorTrail from '@/components/CursorTrail';
 import { useEffect } from 'react';
+import MainVideo from '@/components/home/MainVideo';
 
 const initLenis = async () => {
   try {
@@ -57,10 +58,11 @@ export default function Home() {
       <CursorTrail />
       <Navbar />
       <Hero />
-      <AboutUs />
-      <Features />
+      {/* <MainVideo/> */}
+      {/* <AboutUs /> */}
+      {/* <Features /> */}
       <WaitlistSection />
-      <ComparisonSection />
+      {/* <ComparisonSection /> */}
       {/* <FAQSection /> */}
       {/* <Footer /> */}
     </main>
