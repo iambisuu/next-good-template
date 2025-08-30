@@ -9,7 +9,7 @@ export default function MainVideo() {
   const [showSoundButton, setShowSoundButton] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [hasAttemptedAutoPlay, setHasAttemptedAutoPlay] = useState(false);
-  
+  console.log(isMuted);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'center center'],
